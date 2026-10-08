@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لوحة تحليل مبادرة التمكين - ولاية بوشر</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5f9;--card:#fff;--tx:#14213d;--mut:#6b7691;--bd:#e3e8f1;--pri:#0e7c86;--pri2:#e0f2f3;--navy:#14213d;--acc:#f2a541;--c1:#2f6fed;--c2:#e0527a;--c3:#f0a030;--shadow:0 1px 3px rgba(20,33,61,.06);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1424;--card:#16203a;--tx:#e9edf7;--mut:#94a0bd;--bd:#26324f;--pri:#3fc1cc;--pri2:#173a48;--navy:#e9edf7;--c1:#6d9bff;--c2:#ff7fa0;--c3:#ffbd5c;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0d1424;--card:#16203a;--tx:#e9edf7;--mut:#94a0bd;--bd:#26324f;--pri:#3fc1cc;--pri2:#173a48;--navy:#e9edf7;--c1:#6d9bff;--c2:#ff7fa0;--c3:#ffbd5c;--shadow:none}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;line-height:1.75;font-size:15px}
+.wrap{max-width:1000px;margin:auto;padding:14px}
+header{background:linear-gradient(135deg,#14213d,#0e5f72 70%,#0e7c86);color:#fff;border-radius:20px;padding:22px 20px;margin-bottom:10px}
+header h1{margin:0 0 4px;font-size:1.25rem;font-weight:700}header p{margin:0;opacity:.85;font-size:.85rem}
+nav{display:flex;gap:6px;overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;z-index:9}
+nav button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--mut);font:inherit;font-weight:600;font-size:.85rem;padding:7px 15px;border-radius:99px;cursor:pointer}
+nav button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tab{display:none}.tab.on{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:10px 0}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:10px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:10px 0;box-shadow:var(--shadow)}
+.g2 .card{margin:0}
+.kpi{padding:14px}.kpi .v{font-size:1.4rem;font-weight:700;color:var(--pri);line-height:1.3}.kpi .l{font-size:.78rem;color:var(--mut)}.kpi .s{font-size:.72rem;color:var(--c2)}
+h2{font-size:.98rem;margin:0 0 2px;font-weight:700}.sub{color:var(--mut);font-size:.78rem;margin:0 0 10px}
+.row{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:.78rem}
+.row .n{width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .b{flex:1;background:var(--pri2);border-radius:5px;height:12px;overflow:hidden}
+.row .b i{display:block;height:100%;border-radius:5px;transition:width .35s}
+.row .t{width:58px;text-align:left;font-weight:600}
+.ctl{margin:12px 0}.ctl label{display:flex;justify-content:space-between;font-weight:600;font-size:.88rem}
+input[type=range]{width:100%;accent-color:var(--pri)}
+input[type=search],select{width:100%;padding:9px 12px;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);font:inherit;font-size:.85rem}
+.tools{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
+.btn{border:0;background:var(--navy);color:var(--card);font:inherit;font-weight:600;font-size:.82rem;padding:8px 14px;border-radius:10px;cursor:pointer;margin-top:8px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.8rem}
+th,td{padding:8px 6px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}
+th{color:var(--mut);cursor:pointer;font-weight:600}
+.tag{font-size:.68rem;padding:1px 8px;border-radius:99px;color:#fff;font-weight:600}
+.sel{background:var(--pri2);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:.84rem}
+.leg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.75rem;color:var(--mut);margin-top:8px}.leg i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-left:5px}
+.donut{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.donut svg{width:130px;flex:none}
+.ins{display:grid;gap:8px}.ins div{background:var(--pri2);border-radius:12px;padding:9px 12px;font-size:.83rem}.ins b{color:var(--pri)}
+.heat{display:grid;gap:3px;font-size:.72rem;text-align:center}.heat div{padding:8px 2px;border-radius:6px}.heat .h{color:var(--mut);padding:4px 0}
+.steps{display:grid;gap:10px}.step{display:flex;gap:10px}.step b.c{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-size:.75rem}
+.warn{border-right:4px solid var(--acc)}
+details{border-bottom:1px solid var(--bd);padding:7px 0;font-size:.85rem}summary{cursor:pointer;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{background:var(--pri2);color:var(--pri);padding:3px 11px;border-radius:99px;font-size:.78rem;font-weight:600}
+svg text{font-family:inherit}.mut{color:var(--mut);font-size:.8rem}
+a{color:var(--pri);font-weight:600}
+@media(max-width:520px){.tools{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>تحليل مبادرة تمكين الباحثين عن عمل لإدارة الجمعيات التعاونية</h1><p>مدارس ولاية بوشر · مكتب والي بوشر · لوحة تحليلية تفاعلية</p></header>
+<nav id="nav"></nav>
+
+<section class="tab on" id="t0">
+<div class="grid" id="kpis"></div>
+<div class="g2">
+<div class="card"><h2>الطلبة حسب الجنس</h2><p class="sub">إجمالي 19,527 طالبًا وطالبة</p><div id="d1"></div></div>
+<div class="card"><h2>المدارس حسب الفئة</h2><p class="sub">24 مدرسة حكومية</p><div id="d2"></div></div>
+<div class="card"><h2>المدارس حسب المرحلة</h2><p class="sub">عدد المدارس لكل نطاق صفوف</p><div id="d3"></div></div>
+<div class="card"><h2>الهيئة التدريسية</h2><p class="sub">1,392 معلمًا ومعلمة</p><div id="d4"></div></div>
+</div>
+<div class="card"><h2>أبرز الاستنتاجات</h2><p class="sub">تُحسب تلقائيًا من البيانات</p><div class="ins" id="ins"></div></div>
+<div class="card"><h2>فكرة المبادرة</h2><p style="margin:0;font-size:.88rem">استثمار المقاصف المدرسية كفرص تمكين اقتصادي، بإتاحة تشغيلها للأسر المستحقة والباحثين عن عمل وفق الاشتراطات المعتمدة، لتوفير دخل مستدام وتحسين جودة الخدمة.</p><div class="chips" style="margin-top:10px"><span class="chip">الأسر المعسرة</span><span class="chip">الباحثون عن عمل</span><span class="chip">المسرحون</span></div></div>
+</section>
+
+<section class="tab" id="t1">
+<div class="card"><h2>خريطة توزيع المدارس</h2><p class="sub">حجم الدائرة = عدد الطلبة · اللون = الفئة · الرقم = آخر خانتين من رمز المدرسة · اضغط للتفاصيل</p>
+<div id="map"></div><div class="leg"><span><i style="background:var(--c1)"></i>بنين</span><span><i style="background:var(--c2)"></i>بنات</span><span><i style="background:var(--c3)"></i>مختلطة</span><span>دائرة متقطعة = موقع تقريبي</span></div>
+<div class="sel" id="mapinfo">اضغط على مدرسة في الخريطة.</div>
+<p class="mut" style="margin:8px 0 0">خريطة تخطيطية للولاية (الساحل والطرق والأحياء مرسومة بشكل تقريبي). الدائرة المتصلة = موقع مطابق من خرائط جوجل (10 مدارس)، والمتقطعة = موقع تقريبي (14 مدرسة).</p></div>
+</section>
+
+<section class="tab" id="t2">
+<div class="card"><h2>افتراضات التحليل</h2>
+<div class="ctl"><label>إنفاق الطالب اليومي <span id="vs"></span></label><input type="range" id="sp" min="100" max="600" step="25" value="300"></div>
+<div class="ctl"><label>نسبة الطلبة المشترين يوميًا <span id="vu"></span></label><input type="range" id="up" min="10" max="100" step="5" value="100"></div>
+<div class="ctl"><label>هامش صافي الربح <span id="vm"></span></label><input type="range" id="mg" min="5" max="35" step="1" value="20"></div>
+<p class="mut" style="margin:0">20 يومًا تشغيليًا شهريًا و180 يومًا سنويًا (كما في الدراسة).</p></div>
+<div class="grid" id="fin"></div>
+<div class="g2">
+<div class="card"><h2>خريطة حرارية للحساسية</h2><p class="sub">الربح السنوي للولاية (ألف ر.ع) حسب الإنفاق ونسبة الشراء، بالهامش المختار</p><div id="heat"></div></div>
+<div class="card"><h2>الربح السنوي حسب الهامش</h2><p class="sub">لمدرسة متوسطة (814 طالبًا) بالافتراضات الحالية</p><div id="mgb"></div></div>
+<div class="card"><h2>تركّز الطلبة (باريتو)</h2><p class="sub">النسبة التراكمية للطلبة بعد ترتيب المدارس من الأكبر</p><div id="par"></div></div>
+<div class="card"><h2>المدارس حسب الحجم</h2><p class="sub">توزيع المدارس على شرائح عدد الطلبة</p><div id="band"></div></div>
+</div>
+<div class="card"><h2>مقارنة الفئات</h2><p class="sub">متوسط الربح الشهري للمدرسة حسب الفئة</p><div id="typ"></div></div>
+<div class="card warn"><h2>تنبيه</h2><p class="mut" style="margin:0">الأرقام تقديرية وتمثل سقف المبيعات لا ربحًا مضمونًا؛ يجب خصم المشتريات والعمالة والهدر والرسوم. يوصى بمرحلة تجريبية قبل التوسع.</p></div>
+</section>
+
+<section class="tab" id="t3">
+<div class="card"><div class="tools"><input type="search" id="q" placeholder="ابحث عن مدرسة..."><select id="ty"><option value="">كل الفئات</option><option>بنين</option><option>بنات</option><option>مختلطة</option></select><select id="st"><option value="">كل المراحل</option><option>1-4</option><option>5-9</option><option>5-10</option><option>10-12</option></select></div>
+<button class="btn" id="sug">اقتراح عينة تجريبية متنوعة (3 بنين + 2 بنات)</button> <button class="btn" id="clr" style="background:var(--mut)">مسح الاختيار</button>
+<div class="sel" id="selbox"></div></div>
+<div class="card"><h2>الربح الشهري المتوقع لكل مدرسة</h2><p class="sub">بالريال العماني · حسب الافتراضات الحالية</p><div id="bars"></div></div>
+<div class="card tw"><table><thead><tr><th></th><th data-k="name">المدرسة</th><th data-k="n">الطلبة</th><th data-k="sales">مبيعات/شهر</th><th data-k="profit">ربح/شهر</th></tr></thead><tbody id="tb"></tbody></table></div>
+</section>
+
+<section class="tab" id="t4">
+<div class="card"><h2>هرم التنفيذ</h2><p class="sub">من نطاق الولاية إلى المرحلة الأولى</p><div id="fun"></div></div>
+<div class="card"><h2>مراحل التنفيذ</h2><div class="steps" id="steps"></div></div>
+<div class="card"><h2>النموذج المرحلي</h2><div class="steps">
+<div class="step"><b class="c">1</b><div><b>تجريبية</b><div class="mut">3–5 مدارس متنوعة الحجم لاختبار التشغيل والأسعار والربحية.</div></div></div>
+<div class="step"><b class="c">2</b><div><b>تقييم</b><div class="mut">بعد فصل دراسي: دخل المستفيد، الرضا، جودة الغذاء.</div></div></div>
+<div class="step"><b class="c">3</b><div><b>توسع</b><div class="mut">تعميم النموذج على المدارس المؤهلة تدريجيًا.</div></div></div></div></div>
+<div class="g2"><div class="card"><h2>الجهات المشاركة</h2><div id="parties"></div></div><div class="card"><h2>التحديات</h2><div id="chal"></div></div></div>
+<div class="card"><h2>مؤشرات النجاح</h2><div class="chips" id="kpi2"></div></div>
+</section>
+</div>
+<script>
+const C={"بنين":"var(--c1)","بنات":"var(--c2)","مختلطة":"var(--c3)"};
+const GEO={1401:[23.5944,58.4394],1403:[23.5644,58.4228],1405:[23.5820,58.4022],1407:[23.5952,58.4297],1409:[23.5401,58.3947],1413:[23.5386,58.3947],1415:[23.5695,58.4250],1417:[23.5813,58.4270],1418:[23.6043,58.4414],1419:[23.6021,58.4409],1411:[23.5935,58.4588,1],1421:[23.5880,58.4150,1],1422:[23.5560,58.3980,1],1423:[23.6000,58.4520,1],1424:[23.5750,58.3850,1],1425:[23.5780,58.3560,1],1430:[23.5600,58.4120,1],1431:[23.5500,58.4200,1],1432:[23.5700,58.4000,1],1434:[23.5900,58.4200,1],1435:[23.5600,58.3800,1],1436:[23.5450,58.4100,1],1437:[23.5850,58.3900,1],1438:[23.5750,58.4400,1]};
+const D=`1401|الخوير للبنين للصفوف (5-9)|993
+1403|شجاع بن وهب للبنين للصفوف (5-10)|646
+1405|عاصم بن عمر بن الخطاب للبنين للصفوف (5-10)|1030
+1407|دوحة الأدب للبنات للصفوف (10-12)|972
+1409|أروى بنت عبد المطلب للبنات للصفوف (5-10)|1235
+1411|مدينة السلطان قابوس للصفوف (1-4)|416
+1413|بوشر للصفوف (1-4)|822
+1415|الفتح للصفوف (1-4)|356
+1417|شمس المعارف للصفوف (1-4)|679
+1418|شاطئ القرم للبنات للصفوف (10-12)|1069
+1419|الصاروج للصفوف (1-4)|273
+1421|أميمة بنت قيس للبنات للصفوف (5-10)|817
+1422|العلا للصفوف (1-4)|643
+1423|القرم للبنات للصفوف (5-9)|425
+1424|الغبيراء للصفوف (1-4)|543
+1425|غلا للصفوف (1-4)|667
+1430|حارم بن همام للبنين للصفوف (5-9)|1207
+1431|الشيخ أبو نبهان الخروصي للبنين للصفوف (5-10)|775
+1432|شماء الخليلي للبنات للصفوف (5-10)|967
+1434|الإمام المهنا بن سلطان للبنين للصفوف (10-12)|1146
+1435|نزيهة بنت محمد البوسعيدية للبنات للصفوف (5-10)|754
+1436|التفاني للصفوف (1-4)|451
+1437|منبع الإيمان للصفوف (1-4)|1292
+1438|صفية بنت الخطاب للبنات للصفوف (5-9)|1349`.split("\n").map(l=>{const[c,name,n]=l.split("|");return{c,name,n:+n,ty:/للبنين/.test(name)?"بنين":/للبنات/.test(name)?"بنات":"مختلطة",st:name.match(/\((.*?)\)/)[1],short:name.replace(/للصفوف.*/,"").replace(/للبنين|للبنات/,"").trim(),on:false}});
+const TOT=D.reduce((a,s)=>a+s.n,0);
+const $=i=>document.getElementById(i),f=n=>Math.round(n).toLocaleString("en-US"),fo=n=>f(n)+" ر.ع",pc=x=>(x*100).toFixed(1)+"%";
+const S={sp:300,up:100,mg:20,k:"n",asc:false};
+const calc=(n,mg=S.mg,sp=S.sp,up=S.up)=>{const d=n*sp/1000*up/100;return{d,m:d*20,y:d*180,pm:d*20*mg/100,py:d*180*mg/100}};
+const kp=(v,l,s="")=>`<div class="card kpi" style="margin:0"><div class="v">${v}</div><div class="l">${l}</div>${s?`<div class="s">${s}</div>`:""}</div>`;
+const bar=(n,v,max,t,col="var(--pri)")=>`<div class="row"><span class="n">${n}</span><span class="b"><i style="width:${max?v/max*100:0}%;background:${col}"></i></span><span class="t">${t}</span></div>`;
+function donut(it){const T=it.reduce((a,x)=>a+x.v,0);let o=0;const r=it.map(x=>{const p=x.v/T*100,e=`<circle cx="21" cy="21" r="15.9155" fill="none" stroke="${x.c}" stroke-width="6" stroke-dasharray="${p} ${100-p}" stroke-dashoffset="${-o}" transform="rotate(-90 21 21)"/>`;o+=p;return e}).join("");
+ return `<div class="donut"><svg viewBox="0 0 42 42">${r}<text x="21" y="22.5" text-anchor="middle" font-size="6" font-weight="700" fill="var(--tx)">${f(T)}</text></svg><div class="leg" style="flex-direction:column;margin:0">${it.map(x=>`<span><i style="background:${x.c}"></i>${x.l}: <b style="color:var(--tx)">${f(x.v)}</b> (${(x.v/T*100).toFixed(0)}%)</span>`).join("")}</div></div>`}
+const by=k=>{const m={};D.forEach(s=>{(m[s[k]]=m[s[k]]||[]).push(s)});return m};
+const sum=a=>a.reduce((x,s)=>x+s.n,0);
+const names=["نظرة عامة","الخريطة","التحليل المالي","المدارس","التنفيذ"];
+$("nav").innerHTML=names.map((n,i)=>`<button data-i="${i}" class="${i?"":"on"}">${n}</button>`).join("");
+$("nav").onclick=e=>{const i=e.target.dataset.i;if(i==null)return;document.querySelectorAll(".tab").forEach((t,j)=>t.classList.toggle("on",j==i));[...$("nav").children].forEach((b,j)=>b.classList.toggle("on",j==i));scrollTo(0,0)};
+function overview(){
+ const T=by("ty"),st=by("st"),sorted=[...D].sort((a,b)=>b.n-a.n),top5=sum(sorted.slice(0,5));
+ $("kpis").innerHTML=kp("24","مدرسة حكومية")+kp("19,527","طالب وطالبة","الإناث 54.8%")+kp("814","متوسط الطلبة للمدرسة")+kp("1,392","عضو هيئة تدريسية")+kp("14","طالبًا لكل معلم","19,527 ÷ 1,392");
+ $("d1").innerHTML=donut([{l:"ذكور",v:8825,c:"var(--c1)"},{l:"إناث",v:10702,c:"var(--c2)"}]);
+ $("d2").innerHTML=donut(Object.keys(T).map(k=>({l:k,v:T[k].length,c:C[k]})));
+ const pal=["#0e7c86","#f2a541","#6c5ce7","#e0527a"];
+ $("d3").innerHTML=donut(Object.keys(st).map((k,i)=>({l:"صفوف "+k,v:st[k].length,c:pal[i%4]})));
+ $("d4").innerHTML=donut([{l:"معلمون",v:1017,c:"var(--c1)"},{l:"معلمات",v:375,c:"var(--c2)"}]);
+ const mn=sorted[23],mx=sorted[0];
+ $("ins").innerHTML=[`أكبر 5 مدارس تضم <b>${pc(top5/TOT)}</b> من الطلبة، ما يجعلها الأنسب للانطلاق.`,`أكبر مدرسة (${mx.short}) أكبر بنحو <b>${(mx.n/mn.n).toFixed(1)} ضعف</b> من أصغرها (${mn.short}).`,`مدارس الصفوف 1-4 تمثل <b>${st["1-4"].length}</b> مدرسة لكنها تضم <b>${pc(sum(st["1-4"])/TOT)}</b> من الطلبة فقط، لذا جدواها متفاوتة.`,`مدارس البنات (${T["بنات"].length}) تضم <b>${f(sum(T["بنات"]))}</b> طالبة مقابل <b>${f(sum(T["بنين"]))}</b> طالبًا في مدارس البنين (${T["بنين"].length}).`].map(t=>`<div>${t}</div>`).join("");
+}
+function map(){
+ const W=480,H=400,A=23.535,B=23.62,Cn=58.345,Dn=58.475;
+ const X=v=>(v-Cn)/(Dn-Cn)*W,Y=v=>H-(v-A)/(B-A)*H;
+ const pl=a=>a.map(p=>X(p[1]).toFixed(1)+","+Y(p[0]).toFixed(1)).join(" ");
+ const coast=[[23.617,58.345],[23.612,58.37],[23.610,58.40],[23.609,58.44],[23.614,58.475]];
+ const sea=`M0,0 L${W},0 L${W},${Y(23.614)} `+coast.slice().reverse().map(p=>`L${X(p[1]).toFixed(1)},${Y(p[0]).toFixed(1)}`).join(" ")+` L0,${Y(23.617)} Z`;
+ const roads=[[[23.601,58.345],[23.600,58.40],[23.598,58.44],[23.603,58.475]],[[23.578,58.345],[23.582,58.39],[23.585,58.43],[23.592,58.475]],[[23.545,58.345],[23.56,58.40],[23.568,58.44],[23.575,58.475]],[[23.61,58.372],[23.58,58.376],[23.54,58.372]],[[23.609,58.405],[23.58,58.408],[23.54,58.40]],[[23.608,58.438],[23.58,58.437],[23.54,58.43]]];
+ const areas=[["الخوير",23.5935,58.4345],["القرم",23.5995,58.4565],["الصاروج",23.6045,58.4285],["الغبرة",23.598,58.3720],["بوشر",23.5470,58.3920],["الغلا",23.5700,58.3480],["المها",23.5620,58.4090]];
+ let g="";for(let i=1;i<6;i++){g+=`<line x1="${i*W/6}" y1="0" x2="${i*W/6}" y2="${H}" stroke="var(--bd)" stroke-width=".5"/><line x1="0" y1="${i*H/6}" x2="${W}" y2="${i*H/6}" stroke="var(--bd)" stroke-width=".5"/>`}
+ const dots=D.slice().sort((a,b)=>b.n-a.n).map(s=>{const[la,lo,ap]=GEO[s.c],x=X(lo),y=Y(la);return `<g data-m="${s.c}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="${Math.sqrt(s.n)*.55}" fill="${C[s.ty]}" fill-opacity=".6" stroke="${C[s.ty]}" stroke-width="1.6"${ap?' stroke-dasharray="3 2"':""}/><text x="${x}" y="${y+3}" text-anchor="middle" font-size="8" font-weight="600" fill="var(--tx)" paint-order="stroke" stroke="var(--card)" stroke-width="2">${s.short.split(" ")[0]}</text></g>`}).join("");
+ $("map").innerHTML=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;border-radius:12px;background:var(--pri2);display:block"><path d="${sea}" fill="#5aa9d6" fill-opacity=".35"/>${g}<polyline points="${pl(coast)}" fill="none" stroke="#3a8fc4" stroke-width="2.5"/>${roads.map(r=>`<polyline points="${pl(r)}" fill="none" stroke="var(--mut)" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/><polyline points="${pl(r)}" fill="none" stroke="var(--card)" stroke-opacity=".9" stroke-width="1.5" stroke-linecap="round"/>`).join("")}<text x="${W/2}" y="26" text-anchor="middle" font-size="13" fill="#3a8fc4" font-weight="600" letter-spacing="2">بحر عمان</text>${areas.map(a=>`<text x="${X(a[2])}" y="${Y(a[1])}" text-anchor="middle" font-size="11" font-weight="700" fill="var(--mut)" fill-opacity=".8">${a[0]}</text>`).join("")}<text x="${W-12}" y="${H-12}" text-anchor="end" font-size="11" fill="var(--mut)">↑ شمال</text>${dots}</svg>`;
+ $("map").onclick=e=>{const g=e.target.closest("[data-m]");if(!g)return;const s=D.find(x=>x.c==g.dataset.m),c=calc(s.n),ap=GEO[s.c][2];$("mapinfo").innerHTML=`<b>${s.name}</b> <span class="tag" style="background:${C[s.ty]}">${s.ty}</span><br>${f(s.n)} طالبًا · مبيعات شهرية ${fo(c.m)} · ربح شهري ${fo(c.pm)}<br><span class="mut">${ap?"الموقع تقريبي ضمن نطاق الولاية":"الموقع مطابق من خرائط جوجل"}</span>${ap?"":` · <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${GEO[s.c][0]},${GEO[s.c][1]}">افتح في خرائط جوجل</a>`}`};
+}
+function fin(){
+ $("vs").textContent=S.sp+" بيسة";$("vu").textContent=S.up+"%";$("vm").textContent=S.mg+"%";
+ const t=calc(TOT);
+ $("fin").innerHTML=kp(fo(t.d),"مبيعات يومية للولاية")+kp(fo(t.m),"مبيعات شهرية")+kp(fo(t.y),"مبيعات سنوية")+kp(fo(t.py),"ربح سنوي افتراضي",S.mg+"% هامش");
+ const sp=[200,250,300,350,400],up=[40,55,70,85,100],vals=sp.map(s=>up.map(u=>calc(TOT,S.mg,s,u).py)),mx=Math.max(...vals.flat());
+ $("heat").innerHTML=`<div class="heat" style="grid-template-columns:48px repeat(5,1fr)"><div class="h"></div>${up.map(u=>`<div class="h">${u}%</div>`).join("")}${sp.map((s,i)=>`<div class="h">${s} ب</div>`+vals[i].map(v=>`<div style="background:rgba(14,124,134,${.12+.78*v/mx});color:${v/mx>.55?"#fff":"var(--tx)"}">${f(v/1000)}</div>`).join("")).join("")}</div><p class="mut" style="margin:6px 0 0">الصفوف: الإنفاق بالبيسة · الأعمدة: نسبة الشراء</p>`;
+ const avg=TOT/24;$("mgb").innerHTML=[15,20,25].map(m=>bar("هامش "+m+"%",calc(avg,m).py,calc(avg,25).py,fo(calc(avg,m).py),"var(--acc)")).join("")+`<p class="mut" style="margin:8px 0 0">الربح الشهري عند ${S.mg}%: <b>${fo(calc(avg).pm)}</b></p>`;
+ const so=[...D].sort((a,b)=>b.n-a.n);let cu=0;const pts=so.map((s,i)=>{cu+=s.n;return[20+i*(270/23),100-cu/TOT*90,cu/TOT]});
+ $("par").innerHTML=`<svg viewBox="0 0 300 120" style="width:100%"><line x1="20" y1="100" x2="290" y2="100" stroke="var(--bd)"/><line x1="20" y1="55" x2="290" y2="55" stroke="var(--bd)" stroke-dasharray="3"/><polyline fill="none" stroke="var(--pri)" stroke-width="2.5" points="${pts.map(p=>p[0]+","+p[1]).join(" ")}"/>${[4,11].map(i=>`<circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="4" fill="var(--acc)"/><text x="${pts[i][0]}" y="${pts[i][1]-8}" font-size="9" text-anchor="middle" fill="var(--tx)">${pc(pts[i][2])}</text>`).join("")}<text x="22" y="112" font-size="8" fill="var(--mut)">أكبر مدرسة</text><text x="290" y="112" font-size="8" fill="var(--mut)" text-anchor="end">أصغر مدرسة</text></svg><p class="mut" style="margin:0">أكبر 5 مدارس = ${pc(pts[4][2])} · أكبر 12 = ${pc(pts[11][2])} من الطلبة</p>`;
+ const bd=[["أقل من 500",0,500],["500 – 799",500,800],["800 – 1,099",800,1100],["1,100 فأكثر",1100,1e9]].map(([l,a,b])=>[l,D.filter(s=>s.n>=a&&s.n<b).length]);
+ $("band").innerHTML=bd.map(([l,v])=>bar(l+" طالب",v,Math.max(...bd.map(x=>x[1])),v+" مدارس","var(--c1)")).join("");
+ const T=by("ty");$("typ").innerHTML=Object.keys(T).map(k=>{const v=calc(sum(T[k])/T[k].length).pm;return bar(`${k} (${T[k].length})`,v,calc(1400).pm,fo(v),C[k])}).join("");
+ sch();
+}
+function sch(){
+ const q=$("q").value.trim(),ty=$("ty").value,st=$("st").value;
+ let L=D.map(s=>{const c=calc(s.n);return{...s,sales:c.m,profit:c.pm}}).filter(s=>(!q||s.name.includes(q))&&(!ty||s.ty==ty)&&(!st||s.st==st));
+ L.sort((a,b)=>(S.k=="name"?a.name.localeCompare(b.name,"ar"):a[S.k]-b[S.k])*(S.asc?1:-1));
+ const mx=Math.max(...L.map(s=>s.profit),1);
+ $("bars").innerHTML=L.map(s=>bar(s.short,s.profit,mx,f(s.profit),C[s.ty])).join("")||"<p class='mut'>لا نتائج</p>";
+ $("tb").innerHTML=L.map(s=>`<tr><td><input type="checkbox" data-c="${s.c}" ${s.on?"checked":""}></td><td>${s.name} <span class="tag" style="background:${C[s.ty]}">${s.ty}</span></td><td>${f(s.n)}</td><td>${f(s.sales)}</td><td>${f(s.profit)}</td></tr>`).join("");
+ const sel=D.filter(s=>s.on);
+ if(sel.length){const N=sum(sel),c=calc(N),b=sel.filter(s=>s.ty=="بنين").length,g=sel.filter(s=>s.ty=="بنات").length;
+  $("selbox").innerHTML=`<b>المحدد: ${sel.length} مدارس</b> (${b} بنين، ${g} بنات) · ${f(N)} طالبًا (${pc(N/TOT)} من الطلبة)<br>مبيعات شهرية ${fo(c.m)} · ربح شهري ${fo(c.pm)} · ربح سنوي ${fo(c.py)}<br><span class="mut">افتراض توضيحي: بتوزيع 12 مستفيدًا لكل مدرسة، متوسط الربح الشهري للمستفيد ≈ <b>${fo(c.pm/(sel.length*12))}</b> قبل أي التزامات أخرى.</span>`}
+ else $("selbox").textContent="اختر مدارس لمحاكاة المرحلة التجريبية (المقترح 5 مدارس: 3 بنين و2 بنات).";
+}
+$("tb").onchange=e=>{const s=D.find(x=>x.c==e.target.dataset.c);if(s){s.on=e.target.checked;sch()}};
+document.querySelector("thead").onclick=e=>{const k=e.target.dataset.k;if(!k)return;S.asc=S.k==k?!S.asc:false;S.k=k;sch()};
+["q","ty","st"].forEach(i=>$(i).oninput=sch);
+$("clr").onclick=()=>{D.forEach(s=>s.on=false);sch()};
+$("sug").onclick=()=>{D.forEach(s=>s.on=false);const pick=(t,ix)=>{const a=D.filter(s=>s.ty==t).sort((x,y)=>y.n-x.n);ix.forEach(i=>{const j=i<0?a.length+i:i;if(a[j])a[j].on=true})};pick("بنين",[0,Math.floor(5/2),-1]);pick("بنات",[0,-1]);sch()};
+[["sp","sp"],["up","up"],["mg","mg"]].forEach(([i,k])=>$(i).oninput=e=>{S[k]=+e.target.value;fin()});
+$("fun").innerHTML=[["المستفيدون المرشحون",60,"var(--acc)",44],["مدارس المرحلة الأولى (3 بنين + 2 بنات)",5,"var(--pri)",72],["مدارس الولاية",24,"var(--navy)",100]].map(([l,v,c,w],i)=>`<div style="margin:4px auto;width:${w}%;background:${c};color:${i==0?"#14213d":"var(--card)"};border-radius:${i==0?"30px 30px 8px 8px":"8px"};padding:8px;text-align:center;font-size:.82rem"><b style="font-size:1.1rem">${v}</b><br>${l}</div>`).join("");
+$("steps").innerHTML=[["الحصر","5 مدارس مناسبة (3 بنين و2 بنات) ومقاصفها"],["الترشيح","ترشيح 60 مستفيدًا وفق معايير واضحة"],["التأهيل","تدريب على إدارة المقاصف والسلامة الغذائية والتسويق والمالية"],["الإسناد","إسناد مباشر من وزارة التعليم"],["التشغيل","بدء التشغيل الفعلي في المدارس"],["المتابعة","متابعة الأداء وقياس الأثر دوريًا"]].map(([a,b],i)=>`<div class="step"><b class="c">${i+1}</b><div><b>${a}</b><div class="mut">${b}</div></div></div>`).join("");
+$("parties").innerHTML=[["مكتب والي بوشر","الإشراف العام والتنسيق ومتابعة التنفيذ"],["المديرية العامة للتربية والتعليم بمسقط","تحديد المدارس وتنظيم إجراءات التشغيل"],["مجلس أولياء الأمور","المتابعة والمراقبة وتذليل التحديات"],["المدارس المستهدفة","تسهيل التنفيذ ومتابعة التشغيل"],["لجنة الزكاة","تحديد الأسر المستحقة ودعم التمكين"],["الجهات الصحية والرقابية","متابعة الاشتراطات الصحية وسلامة الغذاء"],["جامعة التقنية والعلوم التطبيقية","تدريب وتأهيل المستفيدين"]].map(([a,b])=>`<details><summary>${a}</summary><div class="mut">${b}</div></details>`).join("");
+$("chal").innerHTML=["وضوح الأدوار والتنسيق بين الجهات","اختيار المستفيدين وفق معايير عادلة","تأهيل المستفيدين في الإدارة والسلامة الغذائية","الالتزام بالاشتراطات الصحية","التوازن بين الجدوى والأسعار المناسبة للطلبة","ضمان الاستمرارية وعدم الاقتصار على فرصة مؤقتة","تفاوت أحجام المدارس وجدواها","الحاجة لنظام متابعة وقياس أثر"].map((t,i)=>`<details><summary>${i+1}. ${t}</summary></details>`).join("");
+$("kpi2").innerHTML=["عدد المدارس","عدد المقاصف","عدد الأسر","عدد المستفيدين","الالتزام بالاشتراطات الصحية","استمرارية المستفيدين","رضا المدارس والطلبة","التحسن في دخل الأسر"].map(t=>`<span class="chip">${t}</span>`).join("");
+overview();map();fin();
+</script></body></html>
